@@ -1,79 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Fichaje SUMMAR Capital RP</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        form {
-            margin-bottom: 20px;
-        }
-        label {
-            margin-right: 10px;
-        }
-        input {
-            margin-right: 10px;
-        }
-        button {
-            padding: 5px 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-        th {
-            background-color: #007bff;
-            color: white;
-        }
-    </style>
-</head>
-<body>
-    <h1>Sistema de Fichaje</h1>
-    <form id="fichajeForm">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
-        <button type="submit">Fichar</button>
-    </form>
-
-    <h2>Historial de Fichajes</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Fecha</th>
-                <th>Hora de Entrada</th>
-                <th>Hora de Salida</th>
-                <th>Horas Trabajadas</th>
-                <th>Tiempo Actual</th>
-            </tr>
-        </thead>
-        <tbody id="historial">
-            <!-- Aquí aparecerán los fichajes -->
-        </tbody>
-    </table>
-
-    <script>
-        // URL del webhook de Discord
+<!doctypehtml><html lang=es><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><title>Sistema de Fichaje</title><style>body{font-family:Arial,sans-serif;margin:20px;padding:20px;background-color:#f4f4f4}form{margin-bottom:20px}label{margin-right:10px}input{margin-right:10px}button{padding:5px 10px;background-color:#007bff;color:#fff;border:none;border-radius:5px;cursor:pointer}button:hover{background-color:#0056b3}table{width:100%;border-collapse:collapse;margin-top:20px}td,th{padding:10px;border:1px solid #ddd;text-align:left}th{background-color:#007bff;color:#fff}</style><h1>Sistema de Fichaje</h1><form id=fichajeForm><label for=nombre>Nombre:</label> <input id=nombre name=nombre required> <button type=submit>Fichar</button></form><h2>Historial de Fichajes</h2><table><thead><tr><th>Nombre<th>Fecha<th>Hora de Entrada<th>Hora de Salida<th>Horas Trabajadas<th>Tiempo Actual<tbody id=historial></table><script>// URL del webhook de Discord
         const webhookURL = "https://discordapp.com/api/webhooks/1331704944381788222/EQg22MlwJ6v37kPBvvViDessUfXv80wZoUwAeB7pNe7K56HDPYpaQh-u96GSaPLiESiK";
 
         // Elementos del DOM
@@ -206,7 +131,4 @@
         });
 
         // Cargar los datos al inicio
-        cargarFichajes();
-    </script>
-</body>
-</html>
+        cargarFichajes();</script>
