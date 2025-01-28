@@ -1,134 +1,134 @@
-<!doctypehtml><html lang=es><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><title>Sistema de Fichaje</title><style>body{font-family:Arial,sans-serif;margin:20px;padding:20px;background-color:#f4f4f4}form{margin-bottom:20px}label{margin-right:10px}input{margin-right:10px}button{padding:5px 10px;background-color:#007bff;color:#fff;border:none;border-radius:5px;cursor:pointer}button:hover{background-color:#0056b3}table{width:100%;border-collapse:collapse;margin-top:20px}td,th{padding:10px;border:1px solid #ddd;text-align:left}th{background-color:#007bff;color:#fff}</style><h1>Sistema de Fichaje</h1><form id=fichajeForm><label for=nombre>Nombre:</label> <input id=nombre name=nombre required> <button type=submit>Fichar</button></form><h2>Historial de Fichajes</h2><table><thead><tr><th>Nombre<th>Fecha<th>Hora de Entrada<th>Hora de Salida<th>Horas Trabajadas<th>Tiempo Actual<tbody id=historial></table><script>// URL del webhook de Discord
-        const webhookURL = "https://discordapp.com/api/webhooks/1331704944381788222/EQg22MlwJ6v37kPBvvViDessUfXv80wZoUwAeB7pNe7K56HDPYpaQh-u96GSaPLiESiK";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Pedidos camisetas</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            background: #111;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        input, select {
+            background: #222;
+            color: #fff;
+        }
+        button {
+            background: #444;
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+alert('Para el pago de la camiseta se te escribira un correo electronico para enviar el enlace de pago.');
+    <div class="container">
+        <h1>Formulario pedidos camisetas</h1>
+        <form id="whitelistForm">
+            <label for="username">Nombre y apellidos</label>
+            <input type="text" id="username" name="username" placeholder="Ej: Antonio Fernandez" required>
 
-        // Elementos del DOM
-        const form = document.getElementById('fichajeForm');
-        const historial = document.getElementById('historial');
+            <label for="dob">Correo electronico:</label>
+            <input type="text" id="username2" name="username2" placeholder="Direccion correo electronico" required>
 
-        // Cargar fichajes previos
-        const cargarFichajes = () => {
-            const fichajes = JSON.parse(localStorage.getItem('fichajes')) || [];
-            historial.innerHTML = '';
-            fichajes.forEach((fichaje, index) => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${fichaje.nombre}</td>
-                    <td>${fichaje.fecha}</td>
-                    <td>${fichaje.horaEntrada || '-'}</td>
-                    <td>${fichaje.horaSalida || '-'}</td>
-                    <td>${fichaje.horasTrabajadas || '-'}</td>
-                    <td id="tiempo-${index}">${fichaje.horaSalida ? '-' : '0:00:00'}</td>
-                `;
-                historial.appendChild(row);
+            <label for="ic">¿Qué camiseta quieres pedir?</label>
+            <select id="ic" name="ic" required>
+                <option value="">Seleccionar respuesta</option>
+                <option value="Respuesta 1">Diozes V2</option>
+            </select>
 
-                // Iniciar contador si no hay hora de salida
-                if (!fichaje.horaSalida) {
-                    iniciarContador(index, fichaje.horaEntrada);
+            <label for="meCommand">¿Talla?</label>
+            <select id="meCommand" name="meCommand" required>
+                <option value="">Seleccionar respuesta</option>
+                <option value="Respuesta 1">XXS</option>
+                <option value="Respuesta 2">XS</option>
+                <option value="Respuesta 3">S</option>
+                <option value="Respuesta 4">M</option>
+                <option value="Respuesta 5">L</option>
+                <option value="Respuesta 6">XL</option>
+                <option value="Respuesta 7">XXL</option>
+                <option value="Respuesta 8">3XL</option>
+                <option value="Respuesta 9">4XL</option>
+                <option value="Respuesta 10">5XL</option>
+            </select>
+
+            <label for="oocMix">¿Qué pais de envio?</label>
+            <select id="oocMix" name="oocMix" required>
+                <option value="">Seleccionar respuesta</option>
+                <option value="Respuesta 1">España</option>
+                <option value="Respuesta 2">Canararias/Baleares</option>
+            </select>
+                
+            <label for="oocMix">¿Metodo de pago?</label>
+            <select id="oocMix" name="oocMix" required>
+                <option value="">Seleccionar respuesta</option>
+                <option value="Respuesta 1">Tarjeta</option>
+                <option value="Respuesta 2">Paypal</option>
+            </select>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('whitelistForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+
+            fetch('https://your-server-endpoint.com/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Formulario enviado correctamente.');
+                } else {
+                    alert('Hubo un error al enviar el formulario.');
                 }
+            })
+            .catch(error => {
+                alert('Error: ' + error.message);
             });
-        };
-
-        // Iniciar contador en tiempo real
-        const iniciarContador = (index, horaEntrada) => {
-            const contadorElement = document.getElementById(`tiempo-${index}`);
-            const inicio = new Date(`${new Date().toLocaleDateString()} ${horaEntrada}`);
-
-            const actualizarTiempo = () => {
-                const ahora = new Date();
-                const diferencia = ahora - inicio;
-
-                const horas = Math.floor(diferencia / (1000 * 60 * 60));
-                const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
-                const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
-
-                contadorElement.textContent = `${horas}:${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
-            };
-
-            // Actualizar cada segundo
-            setInterval(actualizarTiempo, 1000);
-            actualizarTiempo();
-        };
-
-        // Enviar log al webhook de Discord
-        const enviarLogADiscord = async (nombre, fecha, horaEntrada, horaSalida, horasTrabajadas) => {
-            const mensaje = {
-                content: `Registro de fichaje:\n- **Nombre**: ${nombre}\n- **Fecha**: ${fecha}\n- **Hora de Entrada**: ${horaEntrada}\n- **Hora de Salida**: ${horaSalida || '-'}\n- **Horas Trabajadas**: ${horasTrabajadas || '-'}`
-            };
-
-            try {
-                const response = await fetch(webhookURL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(mensaje),
-                });
-
-                if (!response.ok) {
-                    console.error("Error al enviar el log a Discord:", response.statusText);
-                }
-            } catch (error) {
-                console.error("Error al conectar con Discord:", error);
-            }
-        };
-
-        // Guardar fichaje
-        const guardarFichaje = (nombre) => {
-            const ahora = new Date();
-            const fecha = ahora.toLocaleDateString();
-            const hora = ahora.toLocaleTimeString();
-
-            let fichajes = JSON.parse(localStorage.getItem('fichajes')) || [];
-
-            // Verificar si ya existe un fichaje abierto para este usuario
-            let fichajeExistente = fichajes.find(fichaje => fichaje.nombre === nombre && !fichaje.horaSalida);
-
-            if (fichajeExistente) {
-                // Registrar hora de salida y calcular horas trabajadas
-                fichajeExistente.horaSalida = hora;
-
-                const horaEntrada = new Date(`${fecha} ${fichajeExistente.horaEntrada}`);
-                const horaSalida = new Date(`${fecha} ${hora}`);
-                const diferenciaHoras = ((horaSalida - horaEntrada) / (1000 * 60 * 60)).toFixed(2);
-
-                fichajeExistente.horasTrabajadas = `${diferenciaHoras} horas`;
-
-                // Enviar log a Discord
-                enviarLogADiscord(
-                    nombre,
-                    fecha,
-                    fichajeExistente.horaEntrada,
-                    fichajeExistente.horaSalida,
-                    fichajeExistente.horasTrabajadas
-                );
-            } else {
-                // Registrar nueva hora de entrada
-                const nuevoFichaje = {
-                    nombre,
-                    fecha,
-                    horaEntrada: hora,
-                    horaSalida: null,
-                    horasTrabajadas: null,
-                };
-                fichajes.push(nuevoFichaje);
-
-                // Enviar log a Discord
-                enviarLogADiscord(nombre, fecha, hora, null, null);
-            }
-
-            localStorage.setItem('fichajes', JSON.stringify(fichajes));
-            cargarFichajes();
-        };
-
-        // Manejar el envío del formulario
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const nombre = document.getElementById('nombre').value.trim();
-            if (nombre) {
-                guardarFichaje(nombre);
-                form.reset();
-            } else {
-                alert('Por favor, introduce tu nombre.');
-            }
         });
-
-        // Cargar los datos al inicio
-        cargarFichajes();</script>
+    </script>
+</body>
+</html>
